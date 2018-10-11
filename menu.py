@@ -4,12 +4,12 @@ def get_num_of_non_WS_characters(usrStr):
     usrStr = usrStr.replace("\t", "")
     
     for character in usrStr:
-        if character != '!' or character != '?' or character != '.' or character != ' ':
+        if character != '!' or character != '?' or character != '.' or character != ' ' or character != ',' or character != ';' or character != "'":
             char_count += 1
         else:
             pass
     print('Number of non-whitespace characters:', char_count)
-    return
+    return char_count
 
 def get_num_of_words(usrStr):
     wordcount = 1
@@ -22,7 +22,7 @@ def get_num_of_words(usrStr):
         else:
             pass
     print('Number of words:', wordcount)
-    return
+    return wordcount
 
 def fix_capitalization(usrStr):
     capitals = 0
@@ -56,7 +56,7 @@ def fix_capitalization(usrStr):
     revised_usrStr =revised_usrStr.replace(" i ", " I ")
     print('Number of letters capitalized:', capitals)
     print('Edited text:', revised_usrStr)
-    return
+    return revised_usrStr, capitals
 
 def replace_punctuation(usrStr, exclamationCount, semicolonCount):
     revised_usrStr = ''
@@ -75,8 +75,8 @@ def replace_punctuation(usrStr, exclamationCount, semicolonCount):
     print('Punctuation replaced')
     print('exclamationCount:', exclamationCount)
     print('semicolonCount:', semicolonCount)
-    print('Edited text:', revised_usrStr)
-    return (usrStr, exclamationCount, semicolonCount)
+    print('Edited text:',revised_usrStr)
+    return (revised_usrStr, exclamationCount, semicolonCount)
 
 def shorten_space(usrStr):
     revised_usrStr = ''
@@ -92,7 +92,7 @@ def shorten_space(usrStr):
             revised_usrStr = revised_usrStr + ' ' + word
                         
     print('Edited text:', revised_usrStr)
-    return
+    return revised_usrStr
 
 def print_menu(usrStr):
     global menuOp
